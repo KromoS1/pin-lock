@@ -1,12 +1,8 @@
-import { FC, memo, PropsWithChildren } from 'react'
+import { FC, memo } from 'react'
 import { Text, View } from '../Themed'
 import { styles } from './style'
 
-type PropsType = {
-	tintColor?: string
-}
-
-export const Header: FC<PropsWithChildren<PropsType>> = memo(() => {
+export const Header: FC = memo(() => {
 	return (
 		<View style={styles.container}>
 			<Text>Header</Text>

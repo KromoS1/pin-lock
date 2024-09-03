@@ -11,7 +11,7 @@ import { useEffect } from 'react'
 import 'react-native-reanimated'
 
 import { useColorScheme } from '@/src/components/useColorScheme'
-import { COLORS } from '../constants/colorts'
+import { GestureHandlerRootView } from 'react-native-gesture-handler'
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -54,18 +54,17 @@ function RootLayoutNav() {
 	const colorScheme = useColorScheme()
 
 	return (
-		<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-			<Stack
-				screenOptions={{
-					title: 'Home',
-					headerTintColor: COLORS.white,
-					headerStyle: { backgroundColor: COLORS.mainGreen },
-					// headerTitle: props => <Header {...props} />,
-				}}
-			>
-				<Stack.Screen name='index' />
-				{/* <Stack.Screen name='modal' options={{ presentation: 'modal' }} /> */}
-			</Stack>
-		</ThemeProvider>
+		<GestureHandlerRootView style={{ flex: 1 }}>
+			<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+				<Stack
+					screenOptions={{
+						headerShown: false,
+					}}
+				>
+					<Stack.Screen name='index' />
+					{/* <Stack.Screen name='modal' options={{ presentation: 'modal' }} /> */}
+				</Stack>
+			</ThemeProvider>
+		</GestureHandlerRootView>
 	)
 }
