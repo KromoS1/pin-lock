@@ -24,7 +24,7 @@ export const MAX_BOTTOM_SHEET = -HEIGHT + 50
 const offsetOS = Platform.OS === 'ios' ? 0 : -20
 
 const openModalY: { [key in AllModalsType]: number } = {
-	addPin: MAX_BOTTOM_SHEET + 90 + offsetOS,
+	addPin: MAX_BOTTOM_SHEET + 175 + offsetOS,
 }
 
 export type BottomSheetRefType = {

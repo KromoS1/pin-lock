@@ -1,4 +1,4 @@
-import { AddPin } from '@/src/components/addPin/addPin'
+import { AddSecret } from '@/src/components/addSecret/addSecret'
 import { Header } from '@/src/components/header/header'
 import { View } from '@/src/components/Themed'
 import { DarkBG } from '@/src/simple/darkBG/darkBG'
@@ -10,7 +10,7 @@ export const HomeScreen: FC = memo(() => {
 		<View style={styles.container}>
 			<Header />
 			<DarkBG />
-			<AddPin />
+			<AddSecret />
 		</View>
 	)
 })
