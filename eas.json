@@ -1,0 +1,27 @@
+{
+	"cli": {
+		"version": ">= 7.6.2"
+	},
+	"build": {
+		"base": {
+			"node": "20.11.0",
+			"bun": "1.0.0",
+			"android": {
+				"buildType": "apk"
+			},
+			"ios": {
+				"simulator": true
+			},
+			"developmentClient": false,
+			"distribution": "internal"
+		},
+
+		"dev": {
+			"extends": "base",
+			"developmentClient": true
+		}
+	},
+	"submit": {
+		"production": {}
+	}
+}
