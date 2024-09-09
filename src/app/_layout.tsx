@@ -12,6 +12,7 @@ import 'react-native-reanimated'
 
 import { useColorScheme } from '@/src/components/useColorScheme'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -54,17 +55,22 @@ function RootLayoutNav() {
 	const colorScheme = useColorScheme()
 
 	return (
-		<GestureHandlerRootView style={{ flex: 1 }}>
-			<ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-				<Stack
-					screenOptions={{
-						headerShown: false,
-					}}
+		<SafeAreaProvider>
+			<GestureHandlerRootView style={{ flex: 1 }}>
+				<ThemeProvider
+					value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
 				>
-					<Stack.Screen name='index' />
-					{/* <Stack.Screen name='modal' options={{ presentation: 'modal' }} /> */}
-				</Stack>
-			</ThemeProvider>
-		</GestureHandlerRootView>
+					<Stack
+						screenOptions={{
+							headerShown: false,
+						}}
+					>
+						<Stack.Screen name='index' />
+						{/* <Stack.Screen name='addSecrets' /> */}
+						{/* <Stack.Screen name='modal' options={{ presentation: 'modal' }} /> */}
+					</Stack>
+				</ThemeProvider>
+			</GestureHandlerRootView>
+		</SafeAreaProvider>
 	)
 }

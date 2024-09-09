@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: 5,
 	},
 	error: {
-		marginTop: 4,
+		marginTop: 6,
 		position: 'relative',
 	},
 	textError: {

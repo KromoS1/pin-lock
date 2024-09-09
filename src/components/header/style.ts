@@ -8,7 +8,21 @@ export const styles = StyleSheet.create({
 		height: 95,
 		backgroundColor: COLORS.mainGreen,
 		justifyContent: 'flex-end',
-		alignItems: 'center',
+		paddingBottom: 12,
 		paddingHorizontal: APP_PADDING,
+	},
+	wrapper: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		backgroundColor: COLORS.mainGreen,
+	},
+	back: {
+		flexBasis: '10%',
+		backgroundColor: COLORS.mainGreen,
+	},
+	title: {
+		backgroundColor: COLORS.mainGreen,
+		flexBasis: '80%',
+		alignItems: 'center',
 	},
 })

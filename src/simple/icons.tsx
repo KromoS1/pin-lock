@@ -1,4 +1,4 @@
-import { Feather, FontAwesome } from '@expo/vector-icons'
+import { Feather, FontAwesome, Octicons } from '@expo/vector-icons'
 import { FC } from 'react'
 
 type PropsType = {
@@ -26,4 +26,12 @@ export const FeatherIcon: FC<PropsType & FeatherNames> = ({
 	...rest
 }) => {
 	return <Feather size={size} {...rest} />
+}
+
+type OctNames = {
+	name: React.ComponentProps<typeof Octicons>['name']
+}
+
+export const OctIcon: FC<PropsType & OctNames> = ({ size = 28, ...rest }) => {
+	return <Octicons size={size} {...rest} />
 }

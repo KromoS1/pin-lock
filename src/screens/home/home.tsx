@@ -1,16 +1,23 @@
-import { AddSecret } from '@/src/components/addSecret/addSecret'
 import { Header } from '@/src/components/header/header'
+import { ListSecrets } from '@/src/components/listSecrets/listSecrets'
 import { View } from '@/src/components/Themed'
-import { DarkBG } from '@/src/simple/darkBG/darkBG'
-import { FC, memo } from 'react'
+import { BtnAddPin } from '@/src/simple/btnAddPin/btnAddPin'
+import { useRouter } from 'expo-router'
+import { FC, memo, useCallback } from 'react'
 import { styles } from './style'
 
 export const HomeScreen: FC = memo(() => {
+	const { navigate } = useRouter()
+
+	const open = useCallback(() => {
+		navigate('/addSecrets')
+	}, [navigate])
+
 	return (
 		<View style={styles.container}>
 			<Header />
-			<DarkBG />
-			<AddSecret />
+			<BtnAddPin press={open} />
+			<ListSecrets />
 		</View>
 	)
 })
