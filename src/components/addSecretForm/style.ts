@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
 	container: {
 		marginTop: scale(16),
 		width: '100%',
-		minHeight: '65%',
+		minHeight: '55%',
 		alignItems: 'center',
 		fontFamily: 'Montserrat',
 	},
@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 		marginTop: scale(48),
 		width: '100%',
 		height: '100%',
-		gap: 24,
-		justifyContent: 'space-between',
+		gap: 36,
+		// justifyContent: 'space-between',
 	},
 })

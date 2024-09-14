@@ -1,7 +1,9 @@
 import { create } from 'zustand'
 
+import { KeySS } from '@/src/constants/keySS'
 import { SecretsType } from '@/src/types/pin.type'
 import { DayjsApp } from '@/src/utils/dayjsApp'
+import { SS } from '@/src/utils/secureStorage'
 import { randomString } from '@/src/utils/tandom'
 import { createSelectors } from '../createSelectors'
 import { ActionsType, StateType } from './type'
@@ -22,7 +24,11 @@ const useSecretBase = create<StateType & ActionsType>(set => ({
 				...secret,
 			}
 
-			return { state: [newSecret, ...store.state] }
+			const newState = [newSecret, ...store.state]
+
+			SS.set(KeySS.codes, JSON.stringify(newState))
+
+			return { state: newState }
 		}),
 }))
 

@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native'
 
 const colorContained = StyleSheet.create({
 	default: { backgroundColor: COLORS.grey },
-	success: { backgroundColor: COLORS.darkGreen },
+	success: { backgroundColor: COLORS.greenD },
 	error: { backgroundColor: COLORS.red },
 	default_title: { color: COLORS.black },
 	success_title: { color: COLORS.white },
@@ -18,8 +18,8 @@ const colorContained = StyleSheet.create({
 const colorOutlined = StyleSheet.create({
 	default: { borderColor: COLORS.white, borderWidth: 1 },
 	success: {
-		backgroundColor: COLORS.lightGrey,
-		borderColor: COLORS.darkGreen,
+		backgroundColor: COLORS.text,
+		borderColor: COLORS.greenD,
 		borderWidth: 1,
 	},
 	error: {
@@ -28,7 +28,7 @@ const colorOutlined = StyleSheet.create({
 		borderWidth: 1,
 	},
 	default_title: { color: COLORS.white },
-	success_title: { color: COLORS.darkGreen },
+	success_title: { color: COLORS.greenD },
 	error_title: { color: COLORS.red },
 	default_subtitle: { color: COLORS.black },
 	success_subtitle: { color: COLORS.white },

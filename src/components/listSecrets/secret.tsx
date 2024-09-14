@@ -17,7 +17,7 @@ export const Secret: FC<PropsType> = memo(({ secret }) => {
 				<Text>{secret.createdAt}</Text>
 			</View>
 			<View>
-				<Octicons name={'lock'} color={COLORS.darkGreen} size={30} />
+				<Octicons name={'lock'} color={COLORS.greenL} size={30} />
 			</View>
 		</View>
 	)

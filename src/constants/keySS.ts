@@ -1,5 +1,5 @@
 export enum KeySS {
-	codes = 'KEY/codes',
-	settings = 'KEY/settings',
-	masterKey = 'KEY/master-key',
+	codes = 'KEY_codes',
+	settings = 'KEY_settings',
+	masterKey = 'KEY_master_key',
 }

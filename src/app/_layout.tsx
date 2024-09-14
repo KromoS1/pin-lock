@@ -13,6 +13,9 @@ import 'react-native-reanimated'
 import { useColorScheme } from '@/src/components/useColorScheme'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { KeySS } from '../constants/keySS'
+import { useSecret } from '../stores/secrets/secrets.store'
+import { SS } from '../utils/secureStorage'
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -33,6 +36,8 @@ export default function RootLayout() {
 		...FontAwesome.font,
 	})
 
+	const addSecrets = useSecret.use.addSecrets()
+
 	// Expo Router uses Error Boundaries to catch errors in the navigation tree.
 	useEffect(() => {
 		if (error) throw error
@@ -43,6 +48,20 @@ export default function RootLayout() {
 			SplashScreen.hideAsync()
 		}
 	}, [loaded])
+
+	useEffect(() => {
+		;(async () => {
+			const secretsString = (await SS.get(KeySS.codes)) as string
+			try {
+				if (secretsString) {
+					const secrets = JSON.parse(secretsString)
+					addSecrets(secrets)
+				}
+			} catch (e) {
+				console.log(e)
+			}
+		})()
+	}, [])
 
 	if (!loaded) {
 		return null
@@ -65,9 +84,7 @@ function RootLayoutNav() {
 							headerShown: false,
 						}}
 					>
-						<Stack.Screen name='index' />
-						{/* <Stack.Screen name='addSecrets' /> */}
-						{/* <Stack.Screen name='modal' options={{ presentation: 'modal' }} /> */}
+						<Stack.Screen name='(tabs)' />
 					</Stack>
 				</ThemeProvider>
 			</GestureHandlerRootView>

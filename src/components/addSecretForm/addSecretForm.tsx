@@ -1,12 +1,13 @@
 import { COLORS } from '@/src/constants/colorsApp'
 import { APP_PADDING } from '@/src/constants/scaleSIzes'
 import { useBoolean } from '@/src/hooks'
+import { useVisibleFocus } from '@/src/hooks/useVisibleFocus'
 import { ButtonApp } from '@/src/simple/buttonApp/ButtonApp'
 import { FontAwesomeIcon } from '@/src/simple/icons'
 import { InputApp } from '@/src/simple/inputApp/InputApp'
 import { useSecret } from '@/src/stores/secrets/secrets.store'
 import { useRouter } from 'expo-router'
-import React, { FC, memo } from 'react'
+import React, { FC, memo, useEffect } from 'react'
 import { Controller } from 'react-hook-form'
 import { TouchableOpacity } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -18,6 +19,7 @@ export const AddSecretForm: FC = memo(() => {
 	const {
 		control,
 		handleSubmit,
+		reset,
 		formState: { errors },
 	} = useAddSecretForm()
 
@@ -25,10 +27,18 @@ export const AddSecretForm: FC = memo(() => {
 	const { back } = useRouter()
 	const addSecret = useSecret.use.addSecret()
 
+	const isVisible = useVisibleFocus()
+
 	const submit = async (data: AddSecretType) => {
 		addSecret(data)
 		back()
 	}
+
+	useEffect(() => {
+		if (isVisible) {
+			reset()
+		}
+	}, [isVisible])
 
 	return (
 		<KeyboardAwareScrollView
@@ -73,7 +83,7 @@ export const AddSecretForm: FC = memo(() => {
 											<TouchableOpacity onPress={showSecret.toggle}>
 												<FontAwesomeIcon
 													name={showSecret.value ? 'unlock' : 'lock'}
-													color={COLORS.darkGreen}
+													color={COLORS.greenL}
 													size={18}
 												/>
 											</TouchableOpacity>
@@ -84,7 +94,7 @@ export const AddSecretForm: FC = memo(() => {
 						/>
 					</View>
 					<ButtonApp
-						title='Сохранить'
+						title='Добавить'
 						variant='contained'
 						color='success'
 						onPress={handleSubmit(submit)}

@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
 	container: {
 		width: WIDTH,
 		height: 95,
-		backgroundColor: COLORS.mainGreen,
+		backgroundColor: COLORS.greenM,
 		justifyContent: 'flex-end',
 		paddingBottom: 12,
 		paddingHorizontal: APP_PADDING,
@@ -14,14 +14,14 @@ export const styles = StyleSheet.create({
 	wrapper: {
 		flexDirection: 'row',
 		alignItems: 'center',
-		backgroundColor: COLORS.mainGreen,
+		backgroundColor: COLORS.greenM,
 	},
 	back: {
 		flexBasis: '10%',
-		backgroundColor: COLORS.mainGreen,
+		backgroundColor: COLORS.greenM,
 	},
 	title: {
-		backgroundColor: COLORS.mainGreen,
+		backgroundColor: COLORS.greenM,
 		flexBasis: '80%',
 		alignItems: 'center',
 	},
