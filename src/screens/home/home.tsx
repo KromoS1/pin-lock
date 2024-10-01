@@ -7,7 +7,7 @@ import { styles } from './style'
 export const HomeScreen: FC = memo(() => {
 	return (
 		<View style={styles.container}>
-			<Header />
+			<Header title='Список секретов' />
 			<ListSecrets />
 		</View>
 	)

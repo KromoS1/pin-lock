@@ -1,5 +1,5 @@
 import { COLORS } from '@/src/constants/colorsApp'
-import { APP_PADDING, WIDTH } from '@/src/constants/scaleSIzes'
+import { APP_PADDING, moderateScale, WIDTH } from '@/src/constants/scaleSIzes'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
@@ -24,5 +24,10 @@ export const styles = StyleSheet.create({
 		backgroundColor: COLORS.greenM,
 		flexBasis: '80%',
 		alignItems: 'center',
+	},
+	text: {
+		color: COLORS.white,
+		fontSize: moderateScale(18),
+		fontFamily: 'Montserrat',
 	},
 })

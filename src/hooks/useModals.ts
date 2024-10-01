@@ -1,7 +1,7 @@
 import { MutableRefObject, useCallback, useRef, useState } from 'react'
 import { useApp } from '../stores/app/app.store'
 
-export type AllModalsType = 'addPin'
+export type AllModalsType = 'clearSecrets'
 
 export type BottomSheetRefType = {
 	isActive: () => boolean
@@ -9,14 +9,14 @@ export type BottomSheetRefType = {
 	putMax: (modal: AllModalsType | undefined) => number
 }
 
-export const useMapModals = () => {
+export const useModals = () => {
 	const [modal, setModal] = useState<AllModalsType | undefined>()
 	const setIsOpenModal = useApp.use.setIsOpenModal()
 
 	const refs: {
 		[key in AllModalsType]: MutableRefObject<BottomSheetRefType | null>
 	} = {
-		addPin: useRef(null),
+		clearSecrets: useRef(null),
 	}
 
 	const toggleModal = useCallback(

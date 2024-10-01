@@ -57,17 +57,17 @@ export const TabApp: FC<PropsType> = ({
 	useEffect(() => {
 		Animated.timing(scale, {
 			toValue: isFocused ? 1.3 : 1,
-			duration: 300,
+			duration: 200,
 			useNativeDriver: true,
 		}).start()
 		Animated.timing(translateY, {
 			toValue: isFocused ? -10 : 0,
-			duration: 500,
+			duration: 200,
 			useNativeDriver: true,
 		}).start()
 		Animated.timing(colorBG, {
 			toValue: isFocused ? 1 : 0,
-			duration: 700,
+			duration: 400,
 			useNativeDriver: true,
 		}).start()
 	}, [isFocused])

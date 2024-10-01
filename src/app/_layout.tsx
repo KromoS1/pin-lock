@@ -85,6 +85,12 @@ function RootLayoutNav() {
 						}}
 					>
 						<Stack.Screen name='(tabs)' />
+						<Stack.Screen
+							name='clearSecretsModal'
+							options={{
+								presentation: 'modal',
+							}}
+						/>
 					</Stack>
 				</ThemeProvider>
 			</GestureHandlerRootView>

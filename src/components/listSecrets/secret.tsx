@@ -12,9 +12,12 @@ type PropsType = {
 export const Secret: FC<PropsType> = memo(({ secret }) => {
 	return (
 		<View style={styles.secret}>
-			<View>
-				<Text>{secret.title}</Text>
-				<Text>{secret.createdAt}</Text>
+			<View style={styles.info}>
+				<Text style={styles.title}>{secret.title}</Text>
+				<View style={styles.timeBox}>
+					<Text style={styles.timeInfo}>Последнее изменения</Text>
+					<Text style={styles.time}>{secret.createdAt}</Text>
+				</View>
 			</View>
 			<View>
 				<Octicons name={'lock'} color={COLORS.greenL} size={30} />

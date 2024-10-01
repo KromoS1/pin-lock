@@ -4,15 +4,14 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
 	container: {
-		marginTop: scale(16),
 		width: '100%',
 		minHeight: '55%',
 		alignItems: 'center',
 		fontFamily: 'Montserrat',
+		marginTop: scale(20),
 	},
 	title: {
 		textAlign: 'center',
-		marginTop: scale(16),
 		fontSize: moderateScale(20),
 		color: COLORS.black,
 	},
@@ -21,6 +20,5 @@ export const styles = StyleSheet.create({
 		width: '100%',
 		height: '100%',
 		gap: 36,
-		// justifyContent: 'space-between',
 	},
 })

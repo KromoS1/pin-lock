@@ -1,15 +1,27 @@
 import { COLORS } from '@/src/constants/colorsApp'
-import { moderateScale, scale } from '@/src/constants/scaleSIzes'
+import {
+	APP_PADDING,
+	HEIGHT,
+	moderateScale,
+	scale,
+	WIDTH,
+} from '@/src/constants/scaleSIzes'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-	secret: {
+	container: {
+		width: WIDTH,
+		height: HEIGHT,
+		backgroundColor: COLORS.white,
+	},
+	listBox: {
+		paddingHorizontal: APP_PADDING,
+		marginVertical: scale(20),
+		gap: 30,
+	},
+	button: {
 		paddingVertical: scale(16),
 		paddingHorizontal: scale(12),
-
-		flexDirection: 'row',
-		justifyContent: 'space-between',
-		alignItems: 'center',
 		backgroundColor: COLORS.white,
 		borderWidth: 1,
 		borderColor: COLORS.greenL,
@@ -23,25 +35,8 @@ export const styles = StyleSheet.create({
 		// Тень для Android
 		elevation: 5,
 	},
-	info: {
-		gap: scale(12),
-	},
-	title: {
-		maxWidth: '85%',
+	text: {
 		fontFamily: 'Montserrat',
 		fontSize: moderateScale(18),
-	},
-	timeBox: {
-		gap: 4,
-	},
-	timeInfo: {
-		fontFamily: 'Montserrat',
-		fontSize: moderateScale(12),
-		color: COLORS.grey,
-	},
-	time: {
-		fontFamily: 'Montserrat',
-		fontSize: moderateScale(12),
-		color: COLORS.grey,
 	},
 })
