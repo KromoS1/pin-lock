@@ -96,7 +96,7 @@ export const ButtonApp: FC<Props> = memo(
 		])
 
 		return (
-			<Pressable style={styles.pressable} {...resProps}>
+			<Pressable style={styles.pressable} disabled={disabled} {...resProps}>
 				{isLoading ? (
 					<ActivityIndicator color={styles.title.color} />
 				) : (
