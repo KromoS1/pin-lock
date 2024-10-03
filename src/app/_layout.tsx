@@ -16,6 +16,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { KeySS } from '../constants/keySS'
 import { useSecret } from '../stores/secrets/secrets.store'
 import { SS } from '../utils/secureStorage'
+import {useApp} from "@src/stores/app/app.store";
 
 export {
 	// Catch any errors thrown by the Layout component.
@@ -37,11 +38,20 @@ export default function RootLayout() {
 	})
 
 	const addSecrets = useSecret.use.addSecrets()
+	const setIsMasterKey = useApp.use.setIsMasterKey()
 
 	// Expo Router uses Error Boundaries to catch errors in the navigation tree.
 	useEffect(() => {
 		if (error) throw error
 	}, [error])
+
+	useEffect( () => {
+		SS.get(KeySS.masterKey).then(masterKey => {
+			if(masterKey) {
+				setIsMasterKey(true)
+			}
+		})
+	}, []);
 
 	useEffect(() => {
 		if (loaded) {
