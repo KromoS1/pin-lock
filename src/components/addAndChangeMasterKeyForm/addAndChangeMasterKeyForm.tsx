@@ -32,7 +32,7 @@ export const AddAndChangeMasterKeyForm = () => {
 
   const submit = async (data: AddAndChangeMasterKeyType) => {
     setIsMasterKey(true)
-    await SS.set(KeySS.masterKey, JSON.stringify(data.masterKey))
+    await SS.set(KeySS.masterKey, data.masterKey)
     back()
   }
 
