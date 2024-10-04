@@ -8,6 +8,10 @@ import {useApp} from "@src/stores/app/app.store";
 
 export const SettingsScreen: FC = memo(() => {
   const isMasterKey = useApp.use.state().isMasterKey
+
+  const linkPathAddOrChangeMasterKeyScreen = isMasterKey ? '/changeMasterKey' : '/addMasterKey'
+  const nameLink = `${isMasterKey ? "Изменить" : "Добавить"} мастер ключ`
+
   return (
     <View style={styles.container}>
       <Header title='Настройки'/>
@@ -18,21 +22,12 @@ export const SettingsScreen: FC = memo(() => {
           </TouchableOpacity>
         </Link>
 
-        {isMasterKey ? (
-          <Link href={'/changeMasterKey'} asChild>
-            <TouchableOpacity style={styles.button}>
-              <Text style={styles.text}>Изменить мастер ключ</Text>
-            </TouchableOpacity>
-          </Link>
-          )
-          : (
-            <Link href={'/addMasterKey'} asChild>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.text}>Добавить мастер ключ</Text>
-              </TouchableOpacity>
-            </Link>
-          )
-        }
+
+        <Link href={linkPathAddOrChangeMasterKeyScreen} asChild>
+          <TouchableOpacity style={styles.button}>
+            <Text style={styles.text}>{nameLink}</Text>
+          </TouchableOpacity>
+        </Link>
 
 
         <Link href={'/clearSecretsModal'} asChild>
