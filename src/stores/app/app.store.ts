@@ -3,12 +3,12 @@ import {createSelectors} from '../createSelectors'
 
 import {ActionsType, AppStateType, StateType} from './type'
 
-const init: AppStateType = {
+export const init: AppStateType = {
 	isOpenModal: false,
 	isMasterKey: false
 }
 
-const useAppBase = create<StateType & ActionsType>(set => ({
+export const useAppBase = create<StateType & ActionsType>(set => ({
 	state: init,
 	setIsOpenModal: (isOpenModal: boolean) =>
 		set(store => {

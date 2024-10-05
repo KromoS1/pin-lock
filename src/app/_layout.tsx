@@ -10,11 +10,10 @@ import {useColorScheme} from '@/src/components/useColorScheme'
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {useDataSS} from "@src/hooks";
+import { useInitLocalAuth } from '../hooks/useLocalAuth'
 
-export {
-	// Catch any errors thrown by the Layout component.
-	ErrorBoundary,
-} from 'expo-router'
+
+export { ErrorBoundary } from 'expo-router'
 
 // export const unstable_settings = {
 // 	// Ensure that reloading on `/modal` keeps a back button present.
@@ -29,7 +28,10 @@ export default function RootLayout() {
 		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
 		...FontAwesome.font,
 	})
+  
 	useDataSS()
+  useInitLocalAuth()
+
 
 	// Expo Router uses Error Boundaries to catch errors in the navigation tree.
 	useEffect(() => {

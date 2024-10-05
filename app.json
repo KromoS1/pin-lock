@@ -1,50 +1,51 @@
 {
-  "expo": {
-    "name": "secret-lock",
-    "slug": "secret-lock",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
-    "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "android": {
-      "versionCode": 1,
-      "package": "com.techocean.secret_lock",
-      "adaptiveIcon": {
-        "backgroundColor": "#FFFFFF",
-        "foregroundImage": "./assets/images/adaptive-icon.png"
-      },
-      "permissions": [
-        "android.permission.USE_BIOMETRIC",
-        "android.permission.USE_FINGERPRINT"
-      ]
-    },
-    "ios": {
-      "buildNumber": "1",
-      "bundleIdentifier": "com.techocean.secret_lock",
-      "supportsTablet": false
-    },
-    "plugins": [
-      "expo-router",
-      "expo-secure-store",
-      "expo-localization",
-      "expo-local-authentication"
-    ],
-    "experiments": {
-      "typedRoutes": true
-    },
-    "extra": {
-      "router": {
-        "origin": false
-      },
-      "eas": {
-        "projectId": "8061b163-0152-4ca6-be4f-0abaa1559d4b"
-      }
-    }
-  }
+	"expo": {
+		"name": "secret-lock",
+		"slug": "secret-lock",
+		"version": "1.0.0",
+		"orientation": "portrait",
+		"icon": "./assets/images/icon.png",
+		"scheme": "myapp",
+		"userInterfaceStyle": "automatic",
+		"splash": {
+			"image": "./assets/images/splash.png",
+			"resizeMode": "contain",
+			"backgroundColor": "#ffffff"
+		},
+		"android": {
+			"versionCode": 1,
+			"package": "com.techocean.secret_lock",
+			"adaptiveIcon": {
+				"backgroundColor": "#FFFFFF",
+				"foregroundImage": "./assets/images/adaptive-icon.png"
+			},
+			"permissions": [
+				"USE_BIOMETRIC",
+				"android.permission.USE_BIOMETRIC",
+				"android.permission.USE_FINGERPRINT"
+			]
+		},
+		"ios": {
+			"buildNumber": "1",
+			"bundleIdentifier": "com.techocean.secret_lock",
+			"supportsTablet": false
+		},
+		"plugins": [
+			"expo-router",
+			"expo-secure-store",
+			"expo-localization",
+			"expo-local-authentication"
+		],
+		"experiments": {
+			"typedRoutes": true
+		},
+		"extra": {
+			"router": {
+				"origin": false
+			},
+			"eas": {
+				"projectId": "8061b163-0152-4ca6-be4f-0abaa1559d4b"
+			}
+		}
+	}
 }

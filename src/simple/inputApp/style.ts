@@ -9,9 +9,10 @@ export const styles = StyleSheet.create({
 		padding: 15,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
+		alignItems: 'center',
 	},
 	activeBox: {
-		borderColor: COLORS.darkGreen,
+		borderColor: COLORS.greenD,
 	},
 	errorBox: {
 		borderColor: COLORS.red,

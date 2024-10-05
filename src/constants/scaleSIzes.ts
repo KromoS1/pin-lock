@@ -1,7 +1,7 @@
 import { Dimensions, Platform, StatusBar } from 'react-native'
 
-export const WIDTH = Dimensions.get('window').width
-export const HEIGHT = Dimensions.get('window').height
+export const WIDTH = Dimensions.get('screen').width
+export const HEIGHT = Dimensions.get('screen').height
 
 //Guideline sizes are based on standard ~5" screen mobile device
 const guidelineBaseWidth = 350
