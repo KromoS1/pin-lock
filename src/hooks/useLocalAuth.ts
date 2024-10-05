@@ -1,5 +1,6 @@
 import * as LocalAuthentication from 'expo-local-authentication'
 import { useEffect } from 'react'
+import { useApp } from '../stores/app/app.store'
 import { useBiometrics } from '../stores/biometrics/biometrics.store'
 
 export const useInitLocalAuth = () => {
@@ -25,6 +26,7 @@ export const useLocalAuth = () => {
 		useBiometrics().state
 	const setAccess = useBiometrics().setAccess
 	const setError = useBiometrics().setError
+	const setMasterKeyModal = useApp.use.setMasterKeyModal()
 
 	const checkFinger = async () => {
 		if (!isBiometricSupported || !fingerprint) {
@@ -41,9 +43,10 @@ export const useLocalAuth = () => {
 
 			if (biometricAuth.success) {
 				setAccess(biometricAuth.success)
-			} else {
+			} else if (biometricAuth.error !== 'user_cancel') {
 				// если прошли все попытки, надо включить мастер ключ
 				setError(true)
+				setMasterKeyModal(true)
 			}
 		} catch (error) {
 			setError(true)

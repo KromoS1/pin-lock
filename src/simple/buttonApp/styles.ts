@@ -18,7 +18,7 @@ const colorContained = StyleSheet.create({
 const colorOutlined = StyleSheet.create({
 	default: { borderColor: COLORS.white, borderWidth: 1 },
 	success: {
-		backgroundColor: COLORS.text,
+		backgroundColor: COLORS.white,
 		borderColor: COLORS.greenD,
 		borderWidth: 1,
 	},

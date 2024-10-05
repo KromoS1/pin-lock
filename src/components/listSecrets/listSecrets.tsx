@@ -1,12 +1,12 @@
 import { APP_PADDING } from '@/src/constants/scaleSIzes'
 import { useSecret } from '@/src/stores/secrets/secrets.store'
 import { SecretsType } from '@/src/types/pin.type'
-import { useCallback } from 'react'
+import { memo, useCallback } from 'react'
 import { FlatList, View } from 'react-native'
 import { Secret } from './secret'
 
-export const ListSecrets = () => {
-	const secrets = useSecret.use.state()
+export const ListSecrets = memo(() => {
+	const secrets = useSecret.use.state().secrets
 
 	const renderItem = useCallback(
 		({ item }: { item: SecretsType }) => {
@@ -26,4 +26,4 @@ export const ListSecrets = () => {
 			style={{ paddingHorizontal: APP_PADDING }}
 		/>
 	)
-}
+})

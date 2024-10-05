@@ -6,15 +6,22 @@ import { DayjsApp } from '@/src/utils/dayjsApp'
 import { SS } from '@/src/utils/secureStorage'
 import { randomString } from '@/src/utils/tandom'
 import { createSelectors } from '../createSelectors'
-import { ActionsType, StateType } from './type'
+import { ActionsType, SecretsStateType, StateType } from './type'
 
-export const init: SecretsType[] = []
+export const init: SecretsStateType = {
+	showSecret: null,
+	secrets: [],
+}
 
 const useSecretBase = create<StateType & ActionsType>(set => ({
 	state: init,
+	setShowSecret: (showSecret: SecretsType | null) =>
+		set(store => {
+			return { state: { ...store.state, showSecret } }
+		}),
 	addSecrets: (secrets: SecretsType[]) =>
-		set(() => {
-			return { state: secrets }
+		set(store => {
+			return { state: { ...store.state, secrets } }
 		}),
 	addSecret: (secret: Omit<SecretsType, 'id' | 'createdAt'>) =>
 		set(store => {
@@ -24,11 +31,11 @@ const useSecretBase = create<StateType & ActionsType>(set => ({
 				...secret,
 			}
 
-			const newState = [newSecret, ...store.state]
+			const newSecrets = [newSecret, ...store.state.secrets]
 
-			SS.set(KeySS.codes, JSON.stringify(newState))
+			SS.set(KeySS.codes, JSON.stringify(newSecrets))
 
-			return { state: newState }
+			return { state: { ...store.state, secrets: newSecrets } }
 		}),
 }))
 

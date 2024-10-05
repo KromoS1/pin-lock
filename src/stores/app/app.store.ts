@@ -1,11 +1,12 @@
-import {create} from 'zustand'
-import {createSelectors} from '../createSelectors'
+import { create } from 'zustand'
+import { createSelectors } from '../createSelectors'
 
-import {ActionsType, AppStateType, StateType} from './type'
+import { ActionsType, AppStateType, StateType } from './type'
 
 export const init: AppStateType = {
 	isOpenModal: false,
-	isMasterKey: false
+	isMasterKey: false,
+	masterKeyModal: false,
 }
 
 export const useAppBase = create<StateType & ActionsType>(set => ({
@@ -16,8 +17,12 @@ export const useAppBase = create<StateType & ActionsType>(set => ({
 		}),
 	setIsMasterKey: (isMasterKey: boolean) =>
 		set(store => {
-			return{ state: {...store.state, isMasterKey}}
-		})
+			return { state: { ...store.state, isMasterKey } }
+		}),
+	setMasterKeyModal: (masterKeyModal: boolean) =>
+		set(store => {
+			return { state: { ...store.state, masterKeyModal } }
+		}),
 }))
 
 export const useApp = createSelectors(useAppBase)
