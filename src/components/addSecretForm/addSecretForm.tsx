@@ -20,6 +20,7 @@ export const AddSecretForm: FC = memo(() => {
 		control,
 		handleSubmit,
 		reset,
+		watch,
 		formState: { errors },
 	} = useAddSecretForm()
 
@@ -94,6 +95,7 @@ export const AddSecretForm: FC = memo(() => {
 						/>
 					</View>
 					<ButtonApp
+						disabled={!watch('title').length || !watch('value').length}
 						title='Добавить'
 						variant='contained'
 						color='success'

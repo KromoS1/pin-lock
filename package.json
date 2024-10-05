@@ -39,6 +39,7 @@
     "react-native-device-info": "^11.1.0",
     "react-native-exception-handler": "^2.10.10",
     "react-native-gesture-handler": "^2.18.1",
+    "react-native-hash": "^3.0.3",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-reanimated": "~3.10.1",
     "react-native-restart": "^0.0.27",
