@@ -2,8 +2,10 @@ import { APP_PADDING } from '@/src/constants/scaleSIzes'
 import { useSecret } from '@/src/stores/secrets/secrets.store'
 import { SecretsType } from '@/src/types/pin.type'
 import { memo, useCallback } from 'react'
-import { FlatList, View } from 'react-native'
+import { FlatList } from 'react-native'
+import { Text, View } from '../Themed'
 import { Secret } from './secret'
+import { styles } from './style'
 
 export const ListSecrets = memo(() => {
 	const secrets = useSecret.use.state().secrets
@@ -19,9 +21,16 @@ export const ListSecrets = memo(() => {
 		<FlatList
 			data={secrets}
 			renderItem={renderItem}
-			ListHeaderComponent={() => <View style={{ height: 30 }} />}
-			ListFooterComponent={() => <View style={{ height: 100 }} />}
-			ItemSeparatorComponent={() => <View style={{ height: 30 }} />}
+			ListEmptyComponent={() => {
+				return (
+					<View style={styles.boxEmpty}>
+						<Text style={styles.emptyText}>Список секретов пока пуст</Text>
+					</View>
+				)
+			}}
+			ListHeaderComponent={() => <View style={styles.separator30} />}
+			ListFooterComponent={() => <View style={styles.separator100} />}
+			ItemSeparatorComponent={() => <View style={styles.separator30} />}
 			keyExtractor={item => item.id}
 			style={{ paddingHorizontal: APP_PADDING }}
 		/>

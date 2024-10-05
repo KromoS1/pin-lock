@@ -1,3 +1,4 @@
+import { CreateMasterKeyModal } from '@/src/components/createMasterKeyModal/createMaterKeyModal'
 import { Header } from '@/src/components/header/header'
 import { ListSecrets } from '@/src/components/listSecrets/listSecrets'
 import { MasterKeyModal } from '@/src/components/masterKeyModal/masterKeyModal'
@@ -13,6 +14,7 @@ export const HomeScreen: FC = memo(() => {
 			<ListSecrets />
 			<SecretModal />
 			<MasterKeyModal />
+			<CreateMasterKeyModal />
 		</View>
 	)
 })

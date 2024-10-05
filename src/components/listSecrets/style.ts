@@ -50,4 +50,22 @@ export const styles = StyleSheet.create({
 	iconBox: {
 		backgroundColor: COLORS.white,
 	},
+	boxEmpty: {
+		alignItems: 'center',
+		backgroundColor: COLORS.white,
+		width: '100%',
+		height: '100%',
+	},
+	emptyText: {
+		fontFamily: 'Montserrat',
+		color: COLORS.black,
+		fontSize: moderateScale(20),
+	},
+	separator30: {
+		height: 30,
+		backgroundColor: COLORS.white,
+	},
+	separator100: {
+		height: 100,
+	},
 })
