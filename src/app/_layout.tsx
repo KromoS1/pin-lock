@@ -51,6 +51,10 @@ function RootLayoutNav() {
 						}}
 					>
 						<Stack.Screen name='(tabs)' />
+						<Stack.Screen name='aboutApp' />
+						<Stack.Screen name='addMasterKey' />
+						<Stack.Screen name='changeMasterKey' />
+
 						<Stack.Screen
 							name='clearSecretsModal'
 							options={{

@@ -7,10 +7,10 @@ const colorContained = StyleSheet.create({
 	default: { backgroundColor: COLORS.grey },
 	success: { backgroundColor: COLORS.greenD },
 	error: { backgroundColor: COLORS.red },
-	default_title: { color: COLORS.black },
+	default_title: { color: COLORS.white },
 	success_title: { color: COLORS.white },
 	error_title: { color: COLORS.white },
-	default_subtitle: { color: COLORS.grey },
+	default_subtitle: { color: COLORS.white },
 	success_subtitle: { color: COLORS.white },
 	error_subtitle: { color: COLORS.white },
 })

@@ -12,9 +12,12 @@ import { useRouter } from 'expo-router'
 import React from 'react'
 import { Controller } from 'react-hook-form'
 
+import { COLORS } from '@/src/constants/colorsApp'
 import { KeySS } from '@/src/constants/keySS'
 import { useHashApp } from '@/src/hooks/useHash'
+import { FontAwesomeIcon } from '@/src/simple/icons'
 import { SS } from '@/src/utils/secureStorage'
+import { Pressable } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { styles } from './styles'
 
@@ -27,7 +30,7 @@ export const AddAndChangeMasterKeyForm = () => {
 		formState: { errors },
 	} = useAddAndChangeMasterKeyForm()
 
-	const showSecret = useBoolean()
+	const showKeys = useBoolean()
 	const { back } = useRouter()
 	const setIsMasterKey = useApp.use.setIsMasterKey()
 	const createHash = useHashApp()
@@ -61,11 +64,28 @@ export const AddAndChangeMasterKeyForm = () => {
 							render={({ field: { value, onChange } }) => {
 								return (
 									<InputApp
-										secureTextEntry={!showSecret.value}
+										secureTextEntry={!showKeys.value}
 										placeholder='Введите мастер ключ'
 										textError={errors?.masterKey?.message}
 										value={value}
 										onChangeText={value => onChange(value)}
+										endIcon={
+											<Pressable
+												hitSlop={{
+													bottom: 50,
+													left: 50,
+													right: 50,
+													top: 50,
+												}}
+												onPress={showKeys.toggle}
+											>
+												<FontAwesomeIcon
+													name={showKeys.value ? 'unlock' : 'lock'}
+													color={COLORS.greenL}
+													size={18}
+												/>
+											</Pressable>
+										}
 									/>
 								)
 							}}
@@ -76,11 +96,28 @@ export const AddAndChangeMasterKeyForm = () => {
 							render={({ field: { value, onChange } }) => {
 								return (
 									<InputApp
-										secureTextEntry={!showSecret.value}
+										secureTextEntry={!showKeys.value}
 										placeholder='Повторите мастер ключ'
 										textError={errors?.confirmMasterKey?.message}
 										value={value}
 										onChangeText={value => onChange(value)}
+										endIcon={
+											<Pressable
+												hitSlop={{
+													bottom: 50,
+													left: 50,
+													right: 50,
+													top: 50,
+												}}
+												onPress={showKeys.toggle}
+											>
+												<FontAwesomeIcon
+													name={showKeys.value ? 'unlock' : 'lock'}
+													color={COLORS.greenL}
+													size={18}
+												/>
+											</Pressable>
+										}
 									/>
 								)
 							}}

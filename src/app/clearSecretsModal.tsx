@@ -1,5 +1,6 @@
 import { Link, router } from 'expo-router'
 import { StyleSheet, Text, View } from 'react-native'
+import { COLORS } from '../constants/colorsApp'
 
 export default function Modal() {
 	const isPresented = router.canGoBack()
@@ -17,5 +18,6 @@ const styles = StyleSheet.create({
 		flex: 1,
 		alignItems: 'center',
 		justifyContent: 'center',
+		backgroundColor: COLORS.white,
 	},
 })

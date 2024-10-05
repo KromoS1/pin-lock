@@ -9,7 +9,7 @@ import { useSecret } from '@/src/stores/secrets/secrets.store'
 import { useRouter } from 'expo-router'
 import React, { FC, memo, useEffect } from 'react'
 import { Controller } from 'react-hook-form'
-import { TouchableOpacity } from 'react-native'
+import { Pressable } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { Text, View } from '../Themed'
 import { AddSecretType, useAddSecretForm } from './model'
@@ -61,7 +61,7 @@ export const AddSecretForm: FC = memo(() => {
 							render={({ field: { value, onChange } }) => {
 								return (
 									<InputApp
-										placeholder='Введите название секрет'
+										placeholder='Введите название секрета'
 										textError={errors?.title?.message}
 										value={value}
 										onChangeText={value => onChange(value)}
@@ -81,13 +81,21 @@ export const AddSecretForm: FC = memo(() => {
 										value={value}
 										onChangeText={value => onChange(value)}
 										endIcon={
-											<TouchableOpacity onPress={showSecret.toggle}>
+											<Pressable
+												hitSlop={{
+													bottom: 50,
+													left: 50,
+													right: 50,
+													top: 50,
+												}}
+												onPress={showSecret.toggle}
+											>
 												<FontAwesomeIcon
 													name={showSecret.value ? 'unlock' : 'lock'}
 													color={COLORS.greenL}
 													size={18}
 												/>
-											</TouchableOpacity>
+											</Pressable>
 										}
 									/>
 								)
