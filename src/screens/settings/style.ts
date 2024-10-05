@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
 		paddingHorizontal: APP_PADDING,
 		marginVertical: scale(20),
 		gap: 30,
+		backgroundColor: COLORS.white,
 	},
 	button: {
 		paddingVertical: scale(16),
@@ -38,5 +39,6 @@ export const styles = StyleSheet.create({
 	text: {
 		fontFamily: 'Montserrat',
 		fontSize: moderateScale(18),
+		color: COLORS.black,
 	},
 })

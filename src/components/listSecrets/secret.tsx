@@ -19,7 +19,7 @@ export const Secret: FC<PropsType> = memo(({ secret }) => {
 					<Text style={styles.time}>{secret.createdAt}</Text>
 				</View>
 			</View>
-			<View>
+			<View style={styles.iconBox}>
 				<Octicons name={'lock'} color={COLORS.greenL} size={30} />
 			</View>
 		</View>

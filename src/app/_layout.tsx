@@ -14,13 +14,11 @@ import { useColorScheme } from '@/src/components/useColorScheme'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { KeySS } from '../constants/keySS'
+import { useInitLocalAuth } from '../hooks/useLocalAuth'
 import { useSecret } from '../stores/secrets/secrets.store'
 import { SS } from '../utils/secureStorage'
 
-export {
-	// Catch any errors thrown by the Layout component.
-	ErrorBoundary,
-} from 'expo-router'
+export { ErrorBoundary } from 'expo-router'
 
 // export const unstable_settings = {
 // 	// Ensure that reloading on `/modal` keeps a back button present.
@@ -35,6 +33,8 @@ export default function RootLayout() {
 		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
 		...FontAwesome.font,
 	})
+
+	useInitLocalAuth()
 
 	const addSecrets = useSecret.use.addSecrets()
 

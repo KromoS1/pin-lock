@@ -53,7 +53,7 @@ export const AddSecretForm: FC = memo(() => {
 					сможете его легко узнать
 				</Text>
 				<View style={styles.form}>
-					<View style={{ gap: 36 }}>
+					<View style={styles.fields}>
 						<Controller
 							name='title'
 							control={control}

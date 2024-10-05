@@ -24,14 +24,17 @@ export const styles = StyleSheet.create({
 		elevation: 5,
 	},
 	info: {
+		backgroundColor: COLORS.white,
 		gap: scale(12),
 	},
 	title: {
 		maxWidth: '85%',
 		fontFamily: 'Montserrat',
 		fontSize: moderateScale(18),
+		color: COLORS.black,
 	},
 	timeBox: {
+		backgroundColor: COLORS.white,
 		gap: 4,
 	},
 	timeInfo: {
@@ -43,5 +46,8 @@ export const styles = StyleSheet.create({
 		fontFamily: 'Montserrat',
 		fontSize: moderateScale(12),
 		color: COLORS.grey,
+	},
+	iconBox: {
+		backgroundColor: COLORS.white,
 	},
 })
