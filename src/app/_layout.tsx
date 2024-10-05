@@ -1,22 +1,17 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome'
-import {
-	DarkTheme,
-	DefaultTheme,
-	ThemeProvider,
-} from '@react-navigation/native'
-import { useFonts } from 'expo-font'
-import { Stack } from 'expo-router'
+import {DarkTheme, DefaultTheme, ThemeProvider,} from '@react-navigation/native'
+import {useFonts} from 'expo-font'
+import {Stack} from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
-import { useEffect } from 'react'
+import {useEffect} from 'react'
 import 'react-native-reanimated'
 
-import { useColorScheme } from '@/src/components/useColorScheme'
-import { GestureHandlerRootView } from 'react-native-gesture-handler'
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { KeySS } from '../constants/keySS'
+import {useColorScheme} from '@/src/components/useColorScheme'
+import {GestureHandlerRootView} from 'react-native-gesture-handler'
+import {SafeAreaProvider} from 'react-native-safe-area-context'
+import {useDataSS} from "@src/hooks";
 import { useInitLocalAuth } from '../hooks/useLocalAuth'
-import { useSecret } from '../stores/secrets/secrets.store'
-import { SS } from '../utils/secureStorage'
+
 
 export { ErrorBoundary } from 'expo-router'
 
@@ -33,10 +28,10 @@ export default function RootLayout() {
 		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
 		...FontAwesome.font,
 	})
+  
+	useDataSS()
+  useInitLocalAuth()
 
-	useInitLocalAuth()
-
-	const addSecrets = useSecret.use.addSecrets()
 
 	// Expo Router uses Error Boundaries to catch errors in the navigation tree.
 	useEffect(() => {
@@ -48,20 +43,6 @@ export default function RootLayout() {
 			SplashScreen.hideAsync()
 		}
 	}, [loaded])
-
-	useEffect(() => {
-		;(async () => {
-			const secretsString = (await SS.get(KeySS.codes)) as string
-			try {
-				if (secretsString) {
-					const secrets = JSON.parse(secretsString)
-					addSecrets(secrets)
-				}
-			} catch (e) {
-				console.log(e)
-			}
-		})()
-	}, [])
 
 	if (!loaded) {
 		return null
