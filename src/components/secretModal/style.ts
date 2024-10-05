@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
 		fontFamily: 'Montserrat',
 		fontSize: scale(18),
 		fontWeight: FONT_WEIGHT.semiBold,
-		color: COLORS.grey,
+		color: COLORS.black,
 		marginBottom: scale(6),
 	},
 	name: {
