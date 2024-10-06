@@ -43,7 +43,7 @@ const useSecretBase = create<StateType & ActionsType>(set => ({
 				return !secretsID.includes(secret.id)
 			})
 			SS.set(KeySS.codes, JSON.stringify(newSecrets))
-			return { state: { ...store.state, newSecrets } }
+			return { state: { ...store.state, secrets: newSecrets } }
 		})
 }))
 
