@@ -1,11 +1,5 @@
-import { Header } from '../components/header/header'
-import { Text, View } from '../components/Themed'
+import { AboutAppScreen } from '../screens/aboutApp/aboutApp'
 
 export default function AboutApp() {
-	return (
-		<View>
-			<Header title='О приложении' isBack />
-			<Text>defefe</Text>
-		</View>
-	)
+	return <AboutAppScreen />
 }

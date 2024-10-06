@@ -8,7 +8,8 @@ import * as SplashScreen from 'expo-splash-screen'
 import 'react-native-reanimated'
 
 import { useColorScheme } from '@/src/components/useColorScheme'
-import { useDataSS } from '@src/hooks'
+import { useBoolean, useDataSS } from '@src/hooks'
+import { useEffect } from 'react'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { useInitFont } from '../hooks/useInitFont'
@@ -38,6 +39,23 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
 	const colorScheme = useColorScheme()
+	const isReady = useBoolean()
+
+	useEffect(() => {
+		setTimeout(() => {
+			isReady.setTrue()
+		}, 2000)
+	}, [])
+
+	useEffect(() => {
+		if (isReady.value) {
+			SplashScreen.hideAsync()
+		}
+	}, [isReady.value])
+
+	if (!isReady.value) {
+		return null
+	}
 
 	return (
 		<SafeAreaProvider>

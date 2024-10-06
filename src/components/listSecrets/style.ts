@@ -67,5 +67,6 @@ export const styles = StyleSheet.create({
 	},
 	separator100: {
 		height: 100,
+		backgroundColor: COLORS.white,
 	},
 })
