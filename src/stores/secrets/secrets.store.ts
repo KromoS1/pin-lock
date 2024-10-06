@@ -37,6 +37,14 @@ const useSecretBase = create<StateType & ActionsType>(set => ({
 
 			return { state: { ...store.state, secrets: newSecrets } }
 		}),
+	deleteSecrets: (secretsID: string[]) =>
+		set(store => {
+			const newSecrets = store.state.secrets.filter(secret => {
+				return !secretsID.includes(secret.id)
+			})
+			SS.set(KeySS.codes, JSON.stringify(newSecrets))
+			return { state: { ...store.state, newSecrets } }
+		})
 }))
 
 export const useSecret = createSelectors(useSecretBase)
