@@ -40,6 +40,7 @@ export const Secret: FC<PropsType> = memo(({ secret, isDeleteMode, onShowDeleteM
 		selectDeleteSecret(secret.id)
 	}
 	const showDeleteModeHandler = () => {
+		if (isDeleteMode) return
 		onShowDeleteMode()
 		selectSecretHandler()
 	}
