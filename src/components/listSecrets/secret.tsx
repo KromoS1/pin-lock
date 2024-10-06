@@ -24,7 +24,7 @@ export const Secret: FC<PropsType> = memo(({ secret, isDeleteMode, onShowDeleteM
 	const setShowSecret = useSecret.use.setShowSecret()
 	const { checkFinger } = useLocalAuth()
 
-	const { fingerprint, isBiometricSupported, isAccess } =
+	const { fingerprint, isBiometricSupported } =
 		useBiometrics.use.state()
 
 	const pressLock = async () => {

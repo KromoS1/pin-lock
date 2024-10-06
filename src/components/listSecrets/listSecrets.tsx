@@ -1,4 +1,4 @@
-import {APP_PADDING, moderateScale} from '@/src/constants/scaleSIzes'
+import {APP_PADDING} from '@/src/constants/scaleSIzes'
 import {useSecret} from '@/src/stores/secrets/secrets.store'
 import {SecretsType} from '@/src/types/pin.type'
 import {memo, useCallback, useState} from 'react'
@@ -8,7 +8,7 @@ import {ButtonApp} from "@src/simple/buttonApp/ButtonApp";
 import {useLocalAuth} from "@src/hooks/useLocalAuth";
 import {useBiometrics} from "@src/stores/biometrics/biometrics.store";
 import {useApp} from "@src/stores/app/app.store";
-import { styles } from './style'
+import {styles} from './style'
 
 export const ListSecrets = memo(() => {
 	const secrets = useSecret.use.state().secrets
@@ -17,7 +17,7 @@ export const ListSecrets = memo(() => {
 
 	const { checkFinger } = useLocalAuth()
 
-	const { fingerprint, isBiometricSupported, isAccess } =
+	const { fingerprint, isBiometricSupported } =
 		useBiometrics.use.state()
 
   const [isDeleteMode, setIsDeleteMode] = useState<boolean>(false)
