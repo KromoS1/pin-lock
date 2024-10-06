@@ -3,6 +3,13 @@ import { moderateScale, scale } from '@/src/constants/scaleSIzes'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
+	deleteActionsButtonContainer: {
+		height: 50,
+		flexDirection:'row',
+		justifyContent: 'space-between',
+		margin: moderateScale(5)
+	},
+
 	secret: {
 		paddingVertical: scale(16),
 		paddingHorizontal: scale(12),
