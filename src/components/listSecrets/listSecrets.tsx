@@ -39,6 +39,8 @@ export const ListSecrets = memo(() => {
 
 	const deleteSecretsHandler = async () => {
 
+		if(!deleteSecretsList.length) return
+
 		if (fingerprint && isBiometricSupported) {
 			await checkFinger()
 			deleteSecret(deleteSecretsList)
@@ -49,7 +51,7 @@ export const ListSecrets = memo(() => {
 			onShowDeleteMode()
 		}
 	}
-
+	console.log('deleteSecretsList',deleteSecretsList)
 	const renderItem = useCallback(
 		({ item }: { item: SecretsType }) => {
 			const isSelected = deleteSecretsList.includes(item.id)
