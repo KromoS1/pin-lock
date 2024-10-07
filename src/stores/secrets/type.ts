@@ -14,4 +14,5 @@ export type ActionsType = {
 	addSecret: (pin: Omit<SecretsType, 'id' | 'createdAt'>) => void
 	setShowSecret: (showSecret: SecretsType | null) => void
 	deleteSecrets: (secretID: string[]) => void
+	removeSecrets: () => void
 }

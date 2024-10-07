@@ -1,34 +1,28 @@
 {
 	"expo": {
-		"name": "secret-lock",
+		"name": "Secret Lock",
 		"slug": "secret-lock",
 		"version": "1.0.0",
 		"orientation": "portrait",
-		"icon": "./assets/images/icon.png",
-		"scheme": "myapp",
+		"scheme": "secl",
 		"userInterfaceStyle": "automatic",
 		"splash": {
 			"image": "./assets/images/splash.png",
 			"resizeMode": "contain",
-			"backgroundColor": "#ffffff"
+			"backgroundColor": "#2f9b2d"
 		},
 		"android": {
 			"versionCode": 1,
 			"package": "com.techocean.secret_lock",
 			"adaptiveIcon": {
-				"backgroundColor": "#FFFFFF",
-				"foregroundImage": "./assets/images/adaptive-icon.png"
+				"backgroundColor": "#2f9b2d",
+				"foregroundImage": "./assets/images/icon_logo.png"
 			},
 			"permissions": [
 				"USE_BIOMETRIC",
 				"android.permission.USE_BIOMETRIC",
 				"android.permission.USE_FINGERPRINT"
 			]
-		},
-		"ios": {
-			"buildNumber": "1",
-			"bundleIdentifier": "com.techocean.secret_lock",
-			"supportsTablet": false
 		},
 		"plugins": [
 			"expo-router",

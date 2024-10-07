@@ -4,15 +4,18 @@ import {
 	ThemeProvider,
 } from '@react-navigation/native'
 import { Stack } from 'expo-router'
-import * as SplashScreen from 'expo-splash-screen'
-import 'react-native-reanimated'
 
 import { useColorScheme } from '@/src/components/useColorScheme'
 import { useDataSS } from '@src/hooks'
+import { Alert } from 'react-native'
+import { setJSExceptionHandler } from 'react-native-exception-handler'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
+import RNRestart from 'react-native-restart'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { SplashScreenApp } from '../components/splashScreen/splashScreenApp'
 import { useInitFont } from '../hooks/useInitFont'
 import { useInitLocalAuth } from '../hooks/useLocalAuth'
+import { useSplashScreen } from '../hooks/useSplashScreen'
 
 export { ErrorBoundary } from 'expo-router'
 
@@ -22,15 +25,25 @@ export { ErrorBoundary } from 'expo-router'
 // }
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
 	useDataSS()
 	useInitLocalAuth()
 	const loaded = useInitFont()
 
-	if (!loaded) {
-		return null
+	const isReady = useSplashScreen()
+
+	const errorHandler = (e: any, isFatal: boolean) => {
+		if (isFatal) {
+			Alert.alert(`${e.name} ${e.message}`)
+			RNRestart.Restart()
+		}
+	}
+
+	setJSExceptionHandler(errorHandler)
+
+	if (!loaded || !isReady) {
+		return <SplashScreenApp />
 	}
 
 	return <RootLayoutNav />
@@ -40,8 +53,8 @@ function RootLayoutNav() {
 	const colorScheme = useColorScheme()
 
 	return (
-		<SafeAreaProvider>
-			<GestureHandlerRootView style={{ flex: 1 }}>
+		<GestureHandlerRootView style={{ flex: 1 }}>
+			<SafeAreaProvider>
 				<ThemeProvider
 					value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
 				>
@@ -63,7 +76,7 @@ function RootLayoutNav() {
 						/>
 					</Stack>
 				</ThemeProvider>
-			</GestureHandlerRootView>
-		</SafeAreaProvider>
+			</SafeAreaProvider>
+		</GestureHandlerRootView>
 	)
 }

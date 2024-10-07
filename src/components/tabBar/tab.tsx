@@ -3,7 +3,6 @@ import { FeatherIcon } from '@/src/simple/icons'
 import { FC, useEffect, useRef } from 'react'
 import { Animated } from 'react-native'
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler'
-import { useSharedValue } from 'react-native-reanimated'
 import { styles } from './style'
 
 type PropsType = {
@@ -11,6 +10,7 @@ type PropsType = {
 	currentIndex: number
 	keyScreen: string
 	navigation: any
+	disabled?: boolean
 }
 
 const icons = {
@@ -28,10 +28,9 @@ export const TabApp: FC<PropsType> = ({
 	currentIndex,
 	keyScreen,
 	navigation,
+	disabled,
 }) => {
 	const isFocused = currentIndex === index
-
-	const scale1 = useSharedValue(1)
 
 	const scale = useRef(new Animated.Value(1)).current
 	const translateY = useRef(new Animated.Value(0)).current
@@ -78,11 +77,13 @@ export const TabApp: FC<PropsType> = ({
 				styles.tab,
 				{
 					transform: [{ scale }, { translateY }],
+					opacity: disabled ? 0.4 : 1,
 				},
 			]}
 			accessibilityRole='button'
 			accessibilityState={isFocused ? { selected: true } : {}}
 			onPress={onPress}
+			disabled={disabled}
 		>
 			<Animated.View style={[styles.iconBox]}>
 				<Animated.View

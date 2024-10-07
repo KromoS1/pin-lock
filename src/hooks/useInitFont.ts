@@ -6,6 +6,7 @@ import { useEffect } from 'react'
 export const useInitFont = () => {
 	const [loaded, error] = useFonts({
 		SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+		PTSans: require('../assets/fonts/PTSans-Regular.ttf'),
 		...FontAwesome.font,
 	})
 

@@ -3,13 +3,6 @@ import { moderateScale, scale } from '@/src/constants/scaleSIzes'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-	deleteActionsButtonContainer: {
-		height: 50,
-		flexDirection:'row',
-		justifyContent: 'space-between',
-		margin: moderateScale(5)
-	},
-
 	secret: {
 		paddingVertical: scale(16),
 		paddingHorizontal: scale(12),
@@ -55,6 +48,33 @@ export const styles = StyleSheet.create({
 		color: COLORS.grey,
 	},
 	iconBox: {
+		backgroundColor: COLORS.white,
+	},
+	boxEmpty: {
+		alignItems: 'center',
+		backgroundColor: COLORS.white,
+		width: '100%',
+		height: '100%',
+	},
+	emptyText: {
+		fontFamily: 'Montserrat',
+		color: COLORS.black,
+		fontSize: moderateScale(20),
+	},
+	separator30: {
+		marginVertical: 5,
+		height: 20,
+		backgroundColor: COLORS.white,
+	},
+	separator100: {
+		marginTop: 5,
+		height: 95,
+		backgroundColor: COLORS.white,
+	},
+	deleteActionsButtonContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		margin: moderateScale(5),
 		backgroundColor: COLORS.white,
 	},
 })

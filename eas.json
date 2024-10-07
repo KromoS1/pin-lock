@@ -20,6 +20,9 @@
 		"dev": {
 			"extends": "base",
 			"developmentClient": true
+		},
+		"preview": {
+			"extends": "base"
 		}
 	},
 	"submit": {

@@ -16,6 +16,7 @@ import { COLORS } from '@/src/constants/colorsApp'
 import { KeySS } from '@/src/constants/keySS'
 import { useHashApp } from '@/src/hooks/useHash'
 import { FontAwesomeIcon } from '@/src/simple/icons'
+import { useSecret } from '@/src/stores/secrets/secrets.store'
 import { SS } from '@/src/utils/secureStorage'
 import { Pressable } from 'react-native'
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
@@ -34,12 +35,14 @@ export const AddAndChangeMasterKeyForm = () => {
 	const { back } = useRouter()
 	const setIsMasterKey = useApp.use.setIsMasterKey()
 	const createHash = useHashApp()
+	const removeSecrets = useSecret.use.removeSecrets()
 
 	const submit = async (data: AddAndChangeMasterKeyType) => {
 		const hash = await createHash(data.masterKey)
 		if (hash) {
 			setIsMasterKey(true)
 			await SS.set(KeySS.masterKey, hash)
+			removeSecrets()
 			back()
 		}
 	}
@@ -122,6 +125,14 @@ export const AddAndChangeMasterKeyForm = () => {
 								)
 							}}
 						/>
+					</View>
+
+					<View style={styles.info}>
+						<Text style={styles.textInfo}>
+							*В связи с отсутствием полного контроля приложения у
+							разработчиков, при изменении Мастер Ключа будут удалены все
+							предыдущие секреты.
+						</Text>
 					</View>
 					<ButtonApp
 						disabled={

@@ -19,7 +19,7 @@ export const SecretModal: FC = () => {
 	}
 
 	return (
-		<ModalApp visible={access} onRequestClose={close}>
+		<ModalApp visible={access && !!secret} onRequestClose={close}>
 			<Text style={styles.title}>Ваш секретик</Text>
 
 			<Text style={styles.name}>{secret?.title}</Text>

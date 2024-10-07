@@ -15,6 +15,7 @@ export const styles = StyleSheet.create({
 		textAlign: 'center',
 		fontSize: moderateScale(20),
 		color: COLORS.black,
+		fontFamily: 'Montserrat',
 	},
 	form: {
 		marginTop: scale(48),
@@ -26,5 +27,14 @@ export const styles = StyleSheet.create({
 	fields: {
 		backgroundColor: COLORS.white,
 		gap: 36,
+	},
+	info: {
+		backgroundColor: COLORS.white,
+	},
+	textInfo: {
+		textAlign: 'center',
+		fontSize: moderateScale(12),
+		color: COLORS.text,
+		fontFamily: 'Montserrat',
 	},
 })

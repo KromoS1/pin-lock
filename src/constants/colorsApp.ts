@@ -3,6 +3,7 @@ export enum COLORS {
 	black = '#000',
 	grey = 'grey',
 	transparent = 'transparent',
+	redLight = '#ffd9d9',
 	red = 'red',
 	greenL = '#81C784',
 	greenM = '#4CAF50',
