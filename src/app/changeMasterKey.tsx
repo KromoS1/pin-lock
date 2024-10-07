@@ -1,5 +1,10 @@
-import {ChangeMasterKeyScreen} from "@src/screens/changeMasterKey/changeMasterKey";
+import { ChangeMasterKeyScreen } from '@src/screens/changeMasterKey/changeMasterKey'
+import { PageContainer } from '../components/pageContaier/pageContainer'
 
-export default function ChangeMasterKey(){
-  return <ChangeMasterKeyScreen/>
+export default function ChangeMasterKey() {
+	return (
+		<PageContainer>
+			<ChangeMasterKeyScreen />
+		</PageContainer>
+	)
 }

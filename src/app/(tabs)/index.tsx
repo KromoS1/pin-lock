@@ -1,5 +1,10 @@
+import { PageContainer } from '@/src/components/pageContaier/pageContainer'
 import { HomeScreen } from '@/src/screens/home/home'
 
 export default function Home() {
-	return <HomeScreen />
+	return (
+		<PageContainer>
+			<HomeScreen />
+		</PageContainer>
+	)
 }

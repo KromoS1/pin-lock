@@ -13,7 +13,7 @@
 		},
 		"android": {
 			"versionCode": 1,
-			"package": "com.techocean.secret_lock",
+			"package": "com.techocean.secret_lock_apk",
 			"adaptiveIcon": {
 				"backgroundColor": "#2f9b2d",
 				"foregroundImage": "./assets/images/icon_logo.png"

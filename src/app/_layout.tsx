@@ -1,11 +1,5 @@
-import {
-	DarkTheme,
-	DefaultTheme,
-	ThemeProvider,
-} from '@react-navigation/native'
 import { Stack } from 'expo-router'
 
-import { useColorScheme } from '@/src/components/useColorScheme'
 import { useDataSS } from '@src/hooks'
 import { Alert } from 'react-native'
 import { setJSExceptionHandler } from 'react-native-exception-handler'
@@ -50,33 +44,20 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-	const colorScheme = useColorScheme()
-
 	return (
-		<GestureHandlerRootView style={{ flex: 1 }}>
-			<SafeAreaProvider>
-				<ThemeProvider
-					value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
+		<SafeAreaProvider>
+			<GestureHandlerRootView style={{ flex: 1 }}>
+				<Stack
+					screenOptions={{
+						headerShown: false,
+					}}
 				>
-					<Stack
-						screenOptions={{
-							headerShown: false,
-						}}
-					>
-						<Stack.Screen name='(tabs)' />
-						<Stack.Screen name='aboutApp' />
-						<Stack.Screen name='addMasterKey' />
-						<Stack.Screen name='changeMasterKey' />
-
-						<Stack.Screen
-							name='clearSecretsModal'
-							options={{
-								presentation: 'modal',
-							}}
-						/>
-					</Stack>
-				</ThemeProvider>
-			</SafeAreaProvider>
-		</GestureHandlerRootView>
+					<Stack.Screen name='(tabs)' />
+					<Stack.Screen name='aboutApp' />
+					<Stack.Screen name='addMasterKey' />
+					<Stack.Screen name='changeMasterKey' />
+				</Stack>
+			</GestureHandlerRootView>
+		</SafeAreaProvider>
 	)
 }
