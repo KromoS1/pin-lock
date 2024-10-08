@@ -46,7 +46,7 @@ export const ListSecrets = memo(() => {
 	)
 
 	useEffect(() => {
-		if (isAccess && !showSecret) {
+		if (isAccess && selectMode.value) {
 			deleteSecret(selectedSecret)
 			offSelectMode()
 			setAccess(false)
