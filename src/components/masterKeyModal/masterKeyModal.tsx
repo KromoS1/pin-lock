@@ -47,8 +47,9 @@ export const MasterKeyModal: FC = () => {
 
 		if (masterKeyHash === currentHashKey) {
 			setAccess(true)
+		} else {
+			setError(true)
 		}
-		setError(false)
 		close()
 	}
 

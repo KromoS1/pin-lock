@@ -14,8 +14,8 @@ export const SecretModal: FC = () => {
 	const setShowSecret = useSecret.use.setShowSecret()
 
 	const close = () => {
-		setAccess(false)
 		setShowSecret(null)
+		setAccess(false)
 	}
 
 	return (

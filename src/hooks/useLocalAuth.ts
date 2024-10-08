@@ -28,9 +28,11 @@ export const useLocalAuth = () => {
 	const setError = useBiometrics().setError
 	const setMasterKeyModal = useApp.use.setMasterKeyModal()
 
+	//возвращаем false только если была отмена биометрии пользователем
 	const checkFinger = async () => {
 		if (!isBiometricSupported || !fingerprint) {
-			return
+			setMasterKeyModal(true)
+			return true
 		}
 
 		try {
@@ -43,14 +45,19 @@ export const useLocalAuth = () => {
 
 			if (biometricAuth.success) {
 				setAccess(biometricAuth.success)
+
+				return biometricAuth.success
 			} else if (biometricAuth.error !== 'user_cancel') {
 				// если прошли все попытки, надо включить мастер ключ
-				setError(true)
 				setMasterKeyModal(true)
+				return true
+			} else if (biometricAuth.error === 'user_cancel') {
+				return false
 			}
 		} catch (error) {
 			setError(true)
 			console.log(error)
+			return false
 		}
 	}
 

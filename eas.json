@@ -23,6 +23,12 @@
 		},
 		"preview": {
 			"extends": "base"
+		},
+		"prod": {
+			"extends": "base",
+			"android": {
+				"buildType": "app-bundle"
+			}
 		}
 	},
 	"submit": {
