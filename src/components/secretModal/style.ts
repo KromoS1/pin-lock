@@ -1,6 +1,6 @@
 import { COLORS } from '@/src/constants/colorsApp'
 import { FONT_WEIGHT } from '@/src/constants/fontWeight'
-import { scale } from '@/src/constants/scaleSIzes'
+import {moderateScale, scale} from '@/src/constants/scaleSIzes'
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
@@ -35,7 +35,14 @@ export const styles = StyleSheet.create({
 		fontWeight: FONT_WEIGHT.bold,
 	},
 	btn: {
-		marginTop: scale(30),
+		marginTop: scale(20),
 		backgroundColor: COLORS.white,
 	},
+	copyBtn: {
+		marginTop:moderateScale(15),
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		gap: moderateScale(10)
+	}
 })
